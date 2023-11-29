@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'Myapp/base.html' %}
+{% block body_block%}
+  <div class="container mt-5">
+    <form class="col-6 mx-auto card pull-3 shadow-lg" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1>Add Student Details..</h1><hr>     
+                {% csrf_token %}
+    
+                <!--messages-->
+
+                 {% if messages %}
+                 <div class="alert alert-success" role="alert">
+                <ul class="messages">
+                 {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                </div>
+               {% endif %}
+               <!--end messages-->
+    
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Class Room</label>
+                    <input type="text"  name="classroom" placeholder="Enter class room Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Branch</label>
+                    <input type="text"  name="branch"  placeholder="Enter branch Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Roll No</label>
+                      <input type="text"  name="roll_no" placeholder="Enter roll No..."  class="form-control" id="exampleInputEmail1" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">phone</label>
+                        <input type="text"  name="phone" placeholder="Enter phone No..."  class="form-control" id="exampleInputEmail1" >
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                        <input type="file"  name="roll_no" placeholder="..."  class="form-control" id="exampleInputEmail1" >
+                      </div>
+
+                    
+                    <button type="submit" class="btn btn-group-lg btn-success">Add Student</button> <br>
+               
+                    </form>
+        </div>
+        </div>
+    </div>
+    
+{%endblock%}

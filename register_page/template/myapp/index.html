@@ -1,0 +1,39 @@
+<!doctype html>
+{% extends 'Myapp/base.html' %}
+{% block body_block %}
+
+    <table>
+        <tr>
+    <div class="p-4 bg-light">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Naresh IT Technologies..!</h1>
+          <p class="col-md-8 fs-4">Naresh i Technologies (Pronounced: NareshIT) is a leading software 
+            training institute providing Software Training, Project Guidance, IT Consulting and Technology Workshops.</p>
+          <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        </div>
+        <div class="container">
+      <div class="row">
+        
+          {% for customers in customer %}
+        
+
+        <div class="card col-lg-4" style="width: 20rem;">
+          <h3 class="mx-auto">Admin details..!</h3>
+            <img src="/media/{{customers.image}}" style="width: 300px; height: 400px;" class="card-img-top" alt="...">
+            <div class="card-body mx-auto">
+              
+              <h5 class="card-title">Admin : {{customers.name}}</h5>
+              <p class="card-text">Age : {{customers.age}}</p>
+              <a href="/bookshow" class="btn btn-primary">Show Book Issue</a>
+              <a href="/book" class="btn btn-primary">Add Book</a>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+      </div>
+    </div>
+        </tr>
+    </table>
+{% endblock %}

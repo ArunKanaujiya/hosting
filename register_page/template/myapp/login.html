@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'Myapp/base.html' %}
+{% block body_block %}
+
+<div class="container mt-5">
+    <form class="col-6 mx-auto card pull-3 shadow-lg" method="POST" enctype="multipart/form-data">
+        <h1>Login User..</h1><hr>         
+            {% csrf_token %}
+            <!--messages-->
+            {% if messages %}
+             <div class="alert alert-success" role="alert">
+            <ul class="messages">
+             {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            </div>
+            {% endif %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" name="username" placeholder="example@gmail.com"  class="form-control"  >
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" name="password" placeholder="*********" class="form-control" >
+                </div>
+
+                
+                <p>Don't Have account <a href="/register/">Register</a></p>
+                <button type="submit" class="btn btn-primary">Submit</button><br>           
+        </form>
+    </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

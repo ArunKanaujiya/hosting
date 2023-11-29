@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%extends 'MyApp/base.html'%}
+      {%block body_block%}
+    <div class="container col-10 mx-auto card pull-3 shadow-lg">
+        <h1>Book details...</h1><hr> 
+        
+            
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                      </form><br>
+                    
+                
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Sr no:</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book Author</th>
+                <th scope="col">Book Price</th>
+                <th scope="col">Book Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for receipes in data %}
+              <tr>
+                <th scope="row" >{{ forloop.counter }}</th>
+                <td>{{ receipes.name }}</td>
+                <td>{{receipes.author}}</td>
+                <td>Rs:{{ receipes.price}}</td>
+                <td>{{receipes.category}}</td>
+                <td>
+                    <a href="#" class="btn btn-outline-primary">Update</a><hr><a href="#" class="btn btn-outline-danger">Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <a href="/bookshow" class="btn btn-primary btn-success">Refresh</a><br>
+    </div>
+    
+
+{%endblock%}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'Myapp/base.html' %}
+{% block body_block%}
+  <div class="container mt-5">
+    <form class="col-6 mx-auto card pull-3 shadow-lg" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1>Admin Can add Book..</h1><hr>     
+                {% csrf_token %}
+    
+                <!--messages-->
+
+                 {% if messages %}
+                 <div class="alert alert-success" role="alert">
+                <ul class="messages">
+                 {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                </div>
+               {% endif %}
+               <!--end messages-->
+    
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Book Name</label>
+                    <input type="text"  name="name" placeholder="Enter Book Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Author</label>
+                    <input type="text"  name="author"  placeholder="Enter Auther Name.." class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+    
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Price</label>
+                      <input type="text"  name="price" placeholder="Enter Amount..."  class="form-control" id="exampleInputEmail1" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Category</label>
+                    <select id="exampleInputPassword1" name="category">
+                        <option value="category" >Nowel</option>
+                        <option value="category">Comix</option>
+                        <option value="category">Language</option>
+                        <option value="category" >Refrence</option>
+                        <option value="category">Historical</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-group-lg btn-success">Add Book</button> <br>
+               
+                    </form>
+        </div>
+        </div>
+    </div>
+    
+{%endblock%}
